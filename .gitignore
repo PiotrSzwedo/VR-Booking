@@ -1,2 +1,2 @@
-./wp-content/*
-!./wp-content/plugins/TA-*
+wp-content/*
+!wp-content/plugins/TA-*
