@@ -1,0 +1,6 @@
+Order Deny,Allow
+Deny from all
+
+<FilesMatch "\.(webp|svg|js|css|php)$">
+    Allow from all
+</FilesMatch>

@@ -1,0 +1,71 @@
+.ta-profile-manager-auth-div {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    border: 2px solid #e2e2e2;
+}
+
+.ta-profile-manager-auth-div .submit-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.4rem;
+}
+
+.ta-profile-manager-auth-div .submit-div .submit-button{
+    border: none;
+    padding: 1rem 3rem;
+    background: #2ba8de;
+    border-radius: 5rem;
+    color: white;
+    cursor: pointer;
+    transition: .33s;
+    font-size: 15px;
+    flex: 0 0 350px;
+}
+
+.ta-profile-manager-auth-div .submit-div .submit-button:hover{
+    background:rgb(34, 129, 170);
+    transition: .33s;
+}
+
+.ta-profile-manager-auth-div .form-div{
+    display: flex;
+    align-items: center;
+}
+
+.ta-profile-manager-auth .input-div{
+    margin: 5px 5px 20px 5px;
+}
+
+.ta-profile-manager-auth-div .form-div.bg{
+    background: #2ba8de;
+    border-radius: 5px;
+}
+
+.ta-profile-manager-auth-div .form-div .testable-input{
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 20px;
+    padding: 0.30rem 5px 0.30rem 5px;
+    width: 100%;
+    outline: none;
+}
+
+.ta-profile-manager-auth-div .form-div img{
+    width: 27px;
+    padding: 2px 5px;
+}
+
+.ta-profile-manager-auth{
+    min-width: 520px;
+    width: 5vw;
+    margin: auto;
+}
+
+.ta-profile-manager-auth-div .logo{
+    width: 2vw;
+    min-width: 130px;
+    margin-bottom: 25px;
+}

@@ -1,0 +1,236 @@
+.ta-vr-form{
+    background: var(--ta-vr-gray);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0px 5px 0px 2px #d5d5d5;
+}
+
+.ta-vr-form .ta-vr-form-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.ta-vr-form .ta-vr-form-div input:focus{
+    border-color: var(--ta-vr-blue);
+    box-shadow: 0px 0px 4px var(--ta-vr-blue);
+}
+
+.ta-vr-form .ta-vr-form-div input{
+    border-style: solid;
+    border-color: #dddddd;
+    border-width: 2px;
+    border-radius: 3px 3px;
+    background: #ffffff;
+    color: #272626;
+    padding: 10px 12px;
+    outline: none;
+}
+
+.ta-vr-form .ta-vr-form-div-vr-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ta-vr-form .ta-vr-form-div-vr-list .ta-vr input:focus ~ .ta-vr-info {
+    border-color: var(--ta-vr-blue);
+    box-shadow: 0px 0px 4px var(--ta-vr-blue);
+}
+
+.ta-vr-form .ta-vr-form-div-vr-list .ta-vr input:checked ~ .ta-vr-info {
+    border-color: var(--ta-vr-purple);
+    box-shadow: 0px 0px 4px var(--ta-vr-purple);
+}
+
+.ta-vr-form .ta-vr-form-div-vr-list .ta-vr{
+    position: relative;
+    margin: 10px;
+    display: flex;
+}
+
+.ta-vr-form .ta-vr-form-div-vr-list .ta-vr-info{
+    position: relative;
+    padding: 0.4rem;
+    background: var(--ta-vr-white);
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: #dddddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.ta-vr-form .ta-vr-info .dev-mode{
+    position: absolute;
+    top: -9px;
+    left: 87%;
+}
+
+.ta-vr-form .calButton{
+    background: var(--ta-vr-dark-blue);
+    border-radius: 10px;
+    padding: 7px;
+}
+
+#calendar td{
+    border: none;
+    padding: 5px;
+}
+#calendar td button{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    justify-content: center;
+    background: var(--ta-vr-dark-blue);
+}
+
+#calendar td button:disabled{
+    background: var(--ta-vr-dark-dark-blue);
+}
+
+
+.ta-vr-form .ta-vr-form-div-vr-list .ta-vr-info p{
+    margin: 0px;
+    font-weight: 700;
+}
+
+.ta-vr-form .ta-vr-form-div-vr-list .ta-vr-info img{
+    width: 10vw;
+    min-width: 80px;
+    max-width: 200px;
+}
+
+.ta-vr-form .ta-vr-form-div-vr-list input{
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.ta-vr-form .ta-vr-form-div-vr-list .ta-vr-programs{
+    display: none;
+}
+
+.ta-vr-form textarea{
+    width: 100%;
+    height: 143px;
+    outline: none;
+    resize: none;
+}
+
+.ta-vr-form .center-sub .submit{
+    padding: 10px 20px;
+    background: var(--ta-vr-dark-blue);
+    color: var(--ta-vr-white);
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 900;
+    transition: .55s;
+}
+
+.ta-vr-form .center-sub .submit:hover{
+    background: var(--ta-vr-blue);
+    transition: .55s;
+}
+
+.ta-vr-form .center-sub{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 0px;
+    border-top: 2px solid #d5d5d5;
+}
+
+.ta-vr-form .center-sub .submit:focus{
+    background: var(--ta-vr-blue);
+    transition: .55s;
+}
+
+@media (max-width: 400px) {
+    .ta-vr-form .ta-vr-form-div-vr-list .ta-vr{
+        position: relative;
+    margin: 2px;
+    }
+
+    .ta-vr-form{
+        padding: 16px 2px;
+    }
+}
+
+/* admin panel */
+
+.ta-vr-booked{
+    display: flex;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    margin: 5px;
+    padding: 5px;
+    flex-direction: column;
+    background: var(--ta-vr-blue);
+    color: var(--ta-vr-white);
+    align-items: center;
+    box-shadow: 0px 2px 2px #00233f;
+}
+
+.ta-vr-booked .ta-vr-booked-div{
+    margin: 5px;
+}
+
+.ta-vr-booked button, .ta-vr-booked input[type=submit]{
+    background: var(--ta-vr-gray);
+    color: var(--ta-vr-dark-blue);
+    padding: 10px;
+    border-radius: 5px;
+    height: 100%;
+    margin: 0px 5px;
+}
+
+.ta-vr-booked-info.open{
+    position: relative;
+    transform: scale(1);
+    transition: .55s;
+    box-shadow: 0px 2px 2px #bdbbbb;
+}
+
+.ta-vr-booked-info{
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    background: var(--ta-vr-gray);
+    border-radius: 50px;
+    transform: scale(0);
+    transition: .55s;
+}
+
+.ta-vr-booked-info .ta-vr-booked-div{
+    margin: 5px 15px;
+}
+
+.ta-vr-booked-info .ta-vr-booked-info-divs{
+    display: flex;
+}
+
+.ta-vr-booked p, .ta-vr-booked-info p{
+    margin: 0px;
+}
+
+.ta-vr-booked-info ul{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    flex-wrap: wrap;
+}
+
+.ta-vr-booked-info ul li{
+    margin: 0px 5px;
+}
+
+/* edit panel */
+
+.right-left-margin-5{
+    margin: 0 5px 0 5px;
+}
