@@ -12,6 +12,11 @@
                     <img src="/wp-content/plugins/TA-profile-manager/_inc/img/user-icon.svg" alt="">
                     <input placeholder="<?php echo $language["name_or_email"]; ?>" name="identification" class="testable-input" type="text">
                 </div>
+                <div class="form-div">
+                    <p class="error-field">
+                        <?php echo $_GET["login_error_username"] ?>
+                    </p>
+                </div>
             </div>
             <div class="input-div">
                 <div class="form-div bg">
@@ -19,8 +24,13 @@
                     <input placeholder="<?php echo $language["password"]; ?>" name="password" id="password" class="testable-input" type="password" style="border-radius: 0px;">
                     <img id="passwordImage" onclick="showPassword()" src="/wp-content/plugins/TA-profile-manager/_inc/img/eye-open-svgrepo-com.svg" alt="eye">
                 </div>
+                <div class="form-div">
+                    <p class="error-field">
+                        <?php echo $_GET["login_error_password"] ?>
+                    </p>
+                </div>
             </div>
-            <div class="form-div">
+            <div class="input-div form-div">
                 <input name="is_remember_me" type="checkbox" name="" id="">
                 <span><?php echo $language["remember_me"]; ?></span>
             </div>

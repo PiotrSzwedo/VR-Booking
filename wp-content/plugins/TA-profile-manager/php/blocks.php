@@ -25,14 +25,49 @@ function ta_pm_login_block() {
     ));
 }
 
+function ta_pm_register_block() {
+    wp_register_script(
+        'ta-pm-register-editor',
+        plugins_url('../_inc/js/initializeBlocks.js', __FILE__),
+        array('wp-blocks', 'wp-element', 'wp-editor'),
+        null,
+        true
+    );
+
+    // Register the styles
+    wp_register_style(
+        'ta-pm-register',
+        plugins_url('../_inc/css/loginAndRegister.css', __FILE__),
+        array(),
+        filemtime(plugin_dir_path(__FILE__) . '../_inc/css/loginAndRegister.css')
+    );
+
+    // Register the block
+    register_block_type('ta-pm/register', array(
+        'editor_script' => 'ta-pm-register-editor',
+        'style' => 'ta-pm-register',
+        'render_callback' => 'ta_pm_register_render',
+    ));
+}
+
+// render blocks
 function ta_pm_login_render() {
     ob_start();
     include plugin_dir_path(__FILE__) . '../view/login.php';
     return ob_get_clean();
 }
 
+function ta_pm_register_render(){
+    ob_start();
+    include plugin_dir_path(__FILE__) . '../view/create_user.php';
+    return ob_get_clean();
+}
+
+// init function
+
 function ta_pm_register_blocks() {
     ta_pm_login_block();
+    ta_pm_register_block();
 }
 
 add_action('init', 'ta_pm_register_blocks');

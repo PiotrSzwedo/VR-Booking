@@ -21,6 +21,13 @@
                     <p class="description">Liczba dni roboczych pomiędzy rezerwacjami</p>
                 </td>
             </tr>
+            <tr valign="top">
+                <th scope="row">Maksymalna liczba rezerwacji</th>
+                <td>
+                    <input type="number" name="ta_vr_max_reservation" value="<?php echo esc_attr(get_option('ta_vr_max_reservation', 3)); ?>" min="0" max="1000"/>
+                    <p class="description">Liczba dni roboczych pomiędzy rezerwacjami</p>
+                </td>
+            </tr>
         </table>
         
         <?php submit_button(); ?>

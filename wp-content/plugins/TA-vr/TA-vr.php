@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
 
 include __DIR__."/blocks.php";
 include __DIR__."/post.php";
+include __DIR__."/php/autoDeleteBooking.php";
 
 add_action('admin_init', 'ta_vr_register_settings');
 
@@ -26,9 +27,14 @@ function ta_vr_register_settings() {
     if (get_option('ta_vr_day_in_future') === false) {
         add_option('ta_vr_day_in_future', 3);
     }
+
+    if (get_option('ta_vr_max_reservation') === false) {
+        add_option('ta_vr_max_reservation', 3);
+    }
     
     register_setting('ta_vr_options_group', 'ta_vr_day_in_past');
     register_setting('ta_vr_options_group', 'ta_vr_day_in_future');
+    register_setting('ta_vr_options_group', 'ta_vr_max_reservation');
 }
 add_action('admin_init', 'ta_vr_register_settings');
 
@@ -103,10 +109,10 @@ function ta_vr_plugin_activate() {
 
     // Tworzenie tabeli ta_vr
     $sql_vr = "CREATE TABLE IF NOT EXISTS $table_name_vr (
-        id INT(11) NOT NULL AUTO_INCREMENT,
-        number INT(11) NOT NULL,
-        developer_mode TINYINT(1) NOT NULL DEFAULT 0,
-        active TINYINT(1) NOT NULL DEFAULT 1
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `number` VARCHAR(145) NOT NULL,
+        `developer_mode` TINYINT NOT NULL DEFAULT 0,
+        `active` TINYINT NOT NULL DEFAULT 1,
         PRIMARY KEY (id)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;";
 

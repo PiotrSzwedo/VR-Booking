@@ -14,13 +14,20 @@ function handle_form_submission()
     global $renderer;
 
     if (isset($_POST['ta_vr_book'])) {
+
+        if ($vrService->canManyReservation($_POST["user_id"], get_option('ta_vr_max_reservation', 3))){
+            echo $renderer->renderErrorBar("Rezerwacja VR", "osiągnięto maksymalną ilość rezerwacji");
+            $_POST = [];
+            return;
+        }
+
         if (
             key_exists("vr", $_POST) &&
             key_exists("user_id", $_POST) &&
             key_exists("date", $_POST) &&
             key_exists("description", $_POST)
         ) {
-            if ($vrService->reserveVr($_POST["date"], $_POST["user_id"], $_POST["vr"], $_POST["description"])) {
+            if ($vrService->reserveVr($_POST["date"], $_POST["user_id"], $_POST["vr"], $_POST["description"], get_option('ta_vr_max_reservation', 3))) {
                 echo $renderer->renderSuccessBar("Rezerwacja VR");
                 $_POST = [];
                 return;

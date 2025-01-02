@@ -195,7 +195,7 @@ class Renderer
         return ob_get_clean();
     }
 
-    public function renderErrorBar($actionName){
+    public function renderErrorBar($actionName, $message = ""){
         ob_start();
         ?> 
             <div id="ta-status-bar-id" style="
@@ -215,6 +215,7 @@ class Renderer
             ">X</button>
             </div>
                 <p style="margin: 0px 0px 10px;" >Akcja "<?php echo htmlspecialchars($actionName)?>" zakończona niepowodzeniem</p>
+                <p style="margin: 0px 0px 10px;" ><?php echo htmlspecialchars($message)?>"</p>
             </div>
             <script>
                 setTimeout(function() {

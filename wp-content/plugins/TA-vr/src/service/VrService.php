@@ -78,7 +78,7 @@ class VrService{
     }
 
     public function getMyVrReservations($myId){
-            $sql = "
+        $sql = "
             SELECT
                 reservation.id as 'booking_number',
                 reservation.end as 'booking_end_date',
@@ -111,10 +111,12 @@ class VrService{
         return $this->praseReservations($results);
     }
 
-    public function reserveVr($date, $userId, $vrList, $description){
+    public function reserveVr($date, $userId, $vrList, $description, $max){
         if ($userId != get_current_user_id()){
             return false;
         }
+
+        if ($this->canManyReservation($userId, $max))
 
         if (!$vrList || !is_array($vrList)){
             return false;
@@ -296,6 +298,20 @@ class VrService{
 
             return $dates ?: [];
     }
+
+    public function canManyReservation($user_id, $max) {
+        $sql = "SELECT COUNT(*) as count FROM `wordpress`.`ta_vr_reservation` WHERE `user_id` = %d AND `active` = '1'";
+
+        $results = $this->wpdb->get_results($this->wpdb->prepare($sql, $user_id), ARRAY_A);
+
+        if ($results && isset($results[0]['count'])) {
+            $current_reservations = $results[0]['count'];
+            return $current_reservations > $max;  
+        }
+
+        return false;
+    }
+
     private function isDateFree($dateToCheck, $datesList){
         $dateTime = new DateTime($dateToCheck);
 

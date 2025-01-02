@@ -23,3 +23,26 @@ registerBlockType('ta-pm/login', {
         return null;
     },
 });
+
+registerBlockType('ta-pm/register', {
+    title: 'TA Create user panel',
+    icon: 'admin-users',
+    category: 'common',
+
+    attributes: {
+        content: {
+            type: 'string',
+            source: 'html'
+        },
+    },
+
+    edit({ attributes, setAttributes }) {
+        return (
+            "Create user panel"
+        );
+    },
+
+    save() {
+        return null;
+    },
+});
